@@ -70,40 +70,9 @@
                 <h1 class="text-6xl md:text-7xl font-bold tracking-tighter title-font mb-4 text-white">
                     Ivan Kurt Ponce
                 </h1>
-                <p class="text-2xl md:text-3xl text-white/70 mb-12 max-w-2xl mx-auto">
+                <p class="text-2xl md:text-3xl text-white/70 mb-20 max-w-2xl mx-auto">
                     Creator • Innovator • Based in the Philippines 🇵🇭
                 </p>
-
-                <!-- Social Links -->
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="mailto:ivankurt027@gmail.com" 
-                       target="_blank"
-                       class="glass group flex items-center gap-4 px-8 py-5 rounded-3xl text-lg font-medium hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="fa-solid fa-envelope text-2xl text-cyan-400"></i>
-                        <span>Email</span>
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/in/ivan-ponce-98b832307/?trk=opento_sprofile_details" 
-                       target="_blank"
-                       class="glass group flex items-center gap-4 px-8 py-5 rounded-3xl text-lg font-medium hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="fa-brands fa-linkedin text-2xl text-cyan-400"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    
-                    <a href="https://x.com/ivankurt027" 
-                       target="_blank"
-                       class="glass group flex items-center gap-4 px-8 py-5 rounded-3xl text-lg font-medium hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="fa-brands fa-x-twitter text-2xl text-cyan-400"></i>
-                        <span>X</span>
-                    </a>
-                    
-                    <a href="https://www.facebook.com/ivankurt.ponce" 
-                       target="_blank"
-                       class="glass group flex items-center gap-4 px-8 py-5 rounded-3xl text-lg font-medium hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="fa-brands fa-facebook text-2xl text-cyan-400"></i>
-                        <span>Facebook</span>
-                    </a>
-                </div>
 
                 <!-- Scroll hint -->
                 <div class="absolute bottom-12 left-1/2 flex flex-col items-center opacity-60">
@@ -194,8 +163,6 @@
     </div>
 
     <script>
-        // Tailwind script runs automatically
-
         // ============= PARTICLE BACKGROUND =============
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
@@ -216,7 +183,6 @@
                 this.x += this.speedX;
                 this.y += this.speedY;
                 
-                // Bounce off edges
                 if (this.x < 0 || this.x > width) this.speedX *= -1;
                 if (this.y < 0 || this.y > height) this.speedY *= -1;
             }
@@ -235,7 +201,6 @@
             canvas.width = width;
             canvas.height = height;
             
-            // Re-init particles
             particles = [];
             for (let i = 0; i < 160; i++) {
                 particles.push(new Particle());
@@ -262,7 +227,6 @@
         }
 
         function animate() {
-            // Subtle trail effect
             ctx.fillStyle = 'rgba(0, 0, 0, 0.09)';
             ctx.fillRect(0, 0, width, height);
             
@@ -275,25 +239,16 @@
             requestAnimationFrame(animate);
         }
 
-        // Smooth scroll helper
         function smoothScrollTo(section) {
             const element = document.getElementById(section);
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Initialize everything
         window.addEventListener('load', () => {
             resizeCanvas();
             animate();
             
-            // Tailwind ready
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-            });
+            window.addEventListener('resize', resizeCanvas);
         });
     </script>
 </body>
